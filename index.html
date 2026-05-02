@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sulekha Silks — Finest Kerala Silk</title>
+<link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@400;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink:#1a0a00;--gold:#c8922a;--gold-light:#e8b84b;--gold-pale:#f5e6c0;
+  --ivory:#fdf8f0;--silk:#f9f0dc;--rose:#8b3a52;--rose-light:#c4607c;
+  --emerald:#1e5245;--burgundy:#6b1a2a;--shadow:rgba(26,10,0,0.15);--deep:#0d0500;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--ivory);color:var(--ink);font-family:'Crimson Pro',serif;overflow-x:hidden;}
+
+.cur,.cur-ring{position:fixed;pointer-events:none;z-index:9999;border-radius:50%;transition:transform .15s;}
+.cur{width:10px;height:10px;background:var(--gold);mix-blend-mode:multiply;}
+.cur-ring{width:38px;height:38px;border:1.5px solid var(--gold);z-index:9998;transition:all .2s ease;mix-blend-mode:multiply;}
+
+body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");pointer-events:none;z-index:998;}
+
+nav{position:fixed;top:0;width:100%;z-index:500;padding:0 5rem;background:rgba(253,248,240,0.93);backdrop-filter:blur(20px);border-bottom:1px solid rgba(200,146,42,0.2);display:flex;justify-content:space-between;align-items:center;height:72px;animation:slideDown .8s ease both;}
+@keyframes slideDown{from{opacity:0;transform:translateY(-100%)}to{opacity:1;transform:translateY(0)}}
+
+.logo-wrap{display:flex;flex-direction:column;align-items:center;line-height:1;}
+.logo-main{font-family:'Cinzel',serif;font-size:1.45rem;font-weight:700;letter-spacing:.3em;color:var(--ink);}
+.logo-main span{color:var(--gold);}
+.logo-sub{font-family:'Crimson Pro',serif;font-size:.65rem;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-top:.15rem;}
+
+.nav-links{display:flex;gap:2.5rem;list-style:none;}
+.nav-links a{font-family:'Tenor Sans',sans-serif;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);text-decoration:none;opacity:.6;transition:opacity .2s,color .2s;}
+.nav-links a:hover{opacity:1;color:var(--gold);}
+
+.nav-right{display:flex;align-items:center;gap:1rem;}
+.nav-btn{font-family:'Tenor Sans',sans-serif;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;background:none;border:1.5px solid var(--gold);color:var(--gold);padding:.5rem 1.2rem;cursor:none;transition:all .25s;}
+.nav-btn:hover,.nav-btn.filled{background:var(--gold);color:var(--ivory);}
+
+/* HERO */
+.hero{min-height:100vh;background:linear-gradient(135deg,var(--silk) 0%,var(--ivory) 50%,var(--gold-pale) 100%);display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden;padding-top:72px;}
+.hero-deco{position:absolute;inset:0;pointer-events:none;}
+.hdc{position:absolute;border-radius:50%;border:1px solid rgba(200,146,42,0.12);}
+.hdc1{width:600px;height:600px;top:-120px;right:-120px;}
+.hdc2{width:380px;height:380px;top:60px;right:40px;}
+.hdc3{width:180px;height:180px;bottom:80px;left:4%;}
+
+.hero-left{display:flex;flex-direction:column;justify-content:center;padding:5rem 4rem 5rem 5rem;animation:heroL 1.2s .3s ease both;position:relative;z-index:2;}
+@keyframes heroL{from{opacity:0;transform:translateX(-40px)}to{opacity:1;transform:translateX(0)}}
+
+.hero-eyebrow{display:flex;align-items:center;gap:.75rem;margin-bottom:2rem;}
+.eyebrow-line{width:40px;height:1px;background:var(--gold);}
+.eyebrow-text{font-family:'Tenor Sans',sans-serif;font-size:.62rem;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);}
+
+.hero-h1{font-family:'Cinzel',serif;font-size:clamp(2.8rem,5vw,5.5rem);font-weight:600;line-height:1.05;color:var(--ink);margin-bottom:1.5rem;}
+.hero-h1 .iline{font-family:'Libre Baskerville',serif;font-style:italic;font-weight:400;color:var(--gold);display:block;font-size:.85em;}
+
+.hero-para{font-size:1.1rem;line-height:1.85;color:var(--ink);opacity:.65;max-width:400px;margin-bottom:2.5rem;font-weight:300;}
+
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;}
+.btn-gold{font-family:'Tenor Sans',sans-serif;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;background:var(--gold);color:var(--ivory);border:none;padding:1rem 2.2rem;cursor:none;transition:all .3s;text-decoration:none;display:inline-block;position:relative;overflow:hidden;}
+.btn-gold::before{content:'';position:absolute;inset:0;background:var(--ink);transform:translateX(-100%);transition:transform .35s ease;}
+.btn-gold:hover::before{transform:translateX(0);}
+.btn-gold span{position:relative;z-index:1;}
+.btn-outline{font-family:'Tenor Sans',sans-serif;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;background:none;color:var(--ink);border:1.5px solid rgba(26,10,0,.3);padding:1rem 2rem;cursor:none;transition:all .3s;}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold);}
+
+.hero-trust{display:flex;gap:2rem;margin-top:3rem;padding-top:2rem;border-top:1px solid rgba(200,146,42,.2);}
+.trust-num{font-family:'Cinzel',serif;font-size:1.8rem;color:var(--gold);line-height:1;}
+.trust-label{font-family:'Tenor Sans',sans-serif;font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;opacity:.5;margin-top:.2rem;}
+
+.hero-right{position:relative;display:flex;align-items:center;justify-content:center;animation:heroR 1.2s .5s ease both;}
+@keyframes heroR{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:translateX(0)}}
+
+.silk-showcase{width:85%;height:80%;position:relative;}
+.silk-drape{position:absolute;border-radius:3px;box-shadow:0 20px 60px var(--shadow);}
+.sd1{width:55%;height:72%;top:5%;left:5%;background:linear-gradient(135deg,#8b3a52,#c4607c,#8b3a52,#6b1a2a);animation:flt 7s ease-in-out infinite;}
+.sd2{width:48%;height:65%;top:20%;left:38%;background:linear-gradient(135deg,#1e5245,#2d7a62,#1e5245,#0d3028);animation:flt 7s 2s ease-in-out infinite;}
+.sd3{width:35%;height:45%;top:45%;left:20%;background:linear-gradient(135deg,#c8922a,#e8b84b,#c8922a,#8a5a10);animation:flt 7s 4s ease-in-out infinite;}
+.sd4{width:25%;height:35%;top:10%;left:60%;background:linear-gradient(135deg,#6b1a2a,#9b3a5a,#6b1a2a);animation:flt 6s 1s ease-in-out infinite;}
+@keyframes flt{0%,100%{transform:translateY(0) rotate(0deg);}33%{transform:translateY(-14px) rotate(1.5deg);}66%{transform:translateY(8px) rotate(-1deg);}}
+.sd1::after,.sd2::after,.sd3::after{content:'';position:absolute;inset:0;background:linear-gradient(45deg,transparent 30%,rgba(255,255,255,.15) 50%,transparent 70%);animation:shim 3s ease-in-out infinite;}
+@keyframes shim{0%,100%{opacity:0}50%{opacity:1}}
+
+.hero-badge{position:absolute;bottom:8%;right:5%;width:110px;height:110px;border:1.5px solid var(--gold);border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--ivory);animation:spn 20s linear infinite;}
+.badge-inner{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.15em;text-align:center;color:var(--gold);line-height:1.6;animation:spn 20s linear infinite reverse;}
+@keyframes spn{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+
+/* MARQUEE */
+.mq-wrap{background:var(--ink);padding:.9rem 0;overflow:hidden;}
+.mq-track{display:flex;animation:mq 25s linear infinite;white-space:nowrap;}
+.mq-i{font-family:'Tenor Sans',sans-serif;font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--ivory);opacity:.5;padding:0 2rem;flex-shrink:0;}
+.mq-star{color:var(--gold);opacity:1!important;}
+@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* SECTIONS */
+.sec{padding:7rem 5rem;}
+.sec-tag{font-family:'Tenor Sans',sans-serif;font-size:.6rem;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem;display:flex;align-items:center;gap:.75rem;}
+.sec-tag::before{content:'';width:30px;height:1px;background:var(--gold);}
+.sec-h2{font-family:'Cinzel',serif;font-size:clamp(2rem,3.5vw,3.2rem);font-weight:600;line-height:1.15;color:var(--ink);margin-bottom:1rem;}
+.sec-h2 em{font-family:'Libre Baskerville',serif;font-style:italic;font-weight:400;color:var(--gold);}
+
+/* SHOP */
+#shop{background:var(--ivory);}
+.shop-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3.5rem;}
+.filters{display:flex;gap:.5rem;}
+.f-btn{font-family:'Tenor Sans',sans-serif;font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;padding:.45rem 1.1rem;background:none;border:1px solid rgba(26,10,0,.2);color:var(--ink);cursor:none;transition:all .2s;}
+.f-btn.on,.f-btn:hover{background:var(--gold);border-color:var(--gold);color:var(--ivory);}
+
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem;}
+
+.card{cursor:none;position:relative;}
+.card-img{width:100%;aspect-ratio:2/3;position:relative;overflow:hidden;margin-bottom:1.2rem;}
+.card-fabric{width:100%;height:100%;transition:transform .6s cubic-bezier(.25,.46,.45,.94);}
+.card:hover .card-fabric{transform:scale(1.05);}
+.card-over{position:absolute;inset:0;background:linear-gradient(to top,rgba(26,10,0,.75) 0%,transparent 55%);display:flex;flex-direction:column;justify-content:flex-end;padding:1.5rem;opacity:0;transition:opacity .35s;}
+.card:hover .card-over{opacity:1;}
+.card-badge{position:absolute;top:1rem;left:1rem;background:var(--rose);color:var(--ivory);font-family:'Tenor Sans',sans-serif;font-size:.55rem;letter-spacing:.15em;text-transform:uppercase;padding:.3rem .7rem;z-index:2;}
+
+/* ★ THE ORDER BUTTON ★ */
+.order-btn{
+  font-family:'Tenor Sans',sans-serif;font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;
+  background:var(--gold);color:var(--ivory);border:none;padding:.9rem 1.4rem;cursor:none;width:100%;
+  transition:background .25s;position:relative;overflow:hidden;
+}
+.order-btn-inner{display:flex;align-items:center;justify-content:center;gap:.5rem;position:relative;z-index:1;}
+.order-btn-inner .cod-tag{font-size:.52rem;opacity:.8;letter-spacing:.1em;}
+.order-btn::before{content:'';position:absolute;inset:0;background:var(--ink);transform:scaleX(0);transform-origin:left;transition:transform .3s ease;}
+.order-btn:hover::before{transform:scaleX(1);}
+.order-btn:hover{background:var(--gold);}
+
+.quick-view{font-family:'Tenor Sans',sans-serif;font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;background:rgba(253,248,240,.12);backdrop-filter:blur(8px);border:1px solid rgba(253,248,240,.3);color:var(--ivory);padding:.6rem 1rem;cursor:none;width:100%;margin-top:.5rem;transition:background .2s;}
+.quick-view:hover{background:rgba(253,248,240,.22);}
+
+.card-tag{font-family:'Tenor Sans',sans-serif;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem;}
+.card-name{font-size:1.2rem;font-weight:400;margin-bottom:.3rem;color:var(--ink);}
+.card-desc{font-size:.88rem;opacity:.6;margin-bottom:.5rem;font-weight:300;}
+.card-price{display:flex;align-items:baseline;gap:.6rem;}
+.price-now{font-family:'Cinzel',serif;font-size:1.1rem;color:var(--gold);}
+.price-was{font-family:'Tenor Sans',sans-serif;font-size:.75rem;text-decoration:line-through;opacity:.4;}
+
+/* BANNER */
+.banner{background:var(--ink);padding:5rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;position:relative;overflow:hidden;}
+.banner::before{content:'';position:absolute;width:500px;height:500px;border-radius:50%;border:1px solid rgba(200,146,42,.08);top:-150px;right:-100px;}
+.banner-tag{font-family:'Tenor Sans',sans-serif;font-size:.6rem;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;}
+.banner-h2{font-family:'Cinzel',serif;font-size:clamp(2rem,4vw,3.5rem);font-weight:600;color:var(--ivory);line-height:1.1;margin-bottom:1rem;}
+.banner-h2 em{font-family:'Libre Baskerville',serif;font-style:italic;color:var(--gold);}
+.banner-p{font-size:1rem;line-height:1.8;color:var(--ivory);opacity:.55;margin-bottom:2rem;font-weight:300;}
+.banner-right{display:grid;grid-template-columns:1fr 1fr;gap:1rem;position:relative;z-index:2;}
+.banner-sw{aspect-ratio:1;border-radius:2px;position:relative;overflow:hidden;}
+.banner-sw::after{content:attr(data-label);position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(26,10,0,.8),transparent);color:var(--ivory);font-family:'Tenor Sans',sans-serif;font-size:.52rem;letter-spacing:.12em;text-transform:uppercase;padding:.5rem;text-align:center;}
+
+/* ABOUT */
+#about{background:var(--silk);}
+.about-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:5rem;align-items:center;}
+.about-visual{position:relative;height:540px;}
+.av1{position:absolute;width:62%;height:75%;top:0;left:0;background:linear-gradient(135deg,var(--rose),var(--burgundy));box-shadow:0 25px 60px var(--shadow);}
+.av2{position:absolute;width:55%;height:65%;bottom:0;right:0;background:linear-gradient(135deg,var(--emerald),#0d3028);box-shadow:0 25px 60px var(--shadow);}
+.av3{position:absolute;width:40%;height:40%;top:28%;left:28%;background:var(--ivory);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;z-index:3;padding:1.5rem;text-align:center;box-shadow:0 15px 40px var(--shadow);}
+.av3-text{font-family:'Libre Baskerville',serif;font-style:italic;font-size:1rem;line-height:1.6;color:var(--ink);}
+.av-orn{position:absolute;font-family:'Cinzel',serif;font-size:3rem;color:var(--gold);opacity:.12;font-weight:700;}
+.av-orn.tl{top:-1rem;left:-1rem;}
+.av-orn.br{bottom:-1rem;right:-1rem;}
+.about-body p{font-size:1.05rem;line-height:1.9;opacity:.68;font-weight:300;margin-bottom:1.2rem;}
+.about-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem;padding-top:2rem;border-top:1px solid rgba(200,146,42,.25);}
+.astat-n{font-family:'Cinzel',serif;font-size:2rem;color:var(--gold);line-height:1;}
+.astat-l{font-family:'Tenor Sans',sans-serif;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;opacity:.5;margin-top:.3rem;}
+
+/* PROCESS */
+#process{background:var(--ivory);}
+.proc-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:4rem;border-top:1px solid rgba(200,146,42,.25);}
+.proc-step{padding:2rem 2rem 2rem 0;position:relative;}
+.proc-step::after{content:'';position:absolute;top:0;left:0;width:3px;height:0;background:var(--gold);transition:height .6s ease;}
+.proc-step:hover::after{height:100%;}
+.step-n{font-family:'Cinzel',serif;font-size:2.5rem;font-weight:700;color:var(--gold);opacity:.2;line-height:1;margin-bottom:.75rem;}
+.step-t{font-size:1.15rem;margin-bottom:.5rem;}
+.step-d{font-size:.92rem;opacity:.6;line-height:1.7;font-weight:300;}
+
+/* REVIEWS */
+#reviews{background:var(--ink);padding:7rem 5rem;text-align:center;}
+#reviews .sec-tag{justify-content:center;}
+#reviews .sec-tag::before{display:none;}
+#reviews .sec-h2{color:var(--ivory);}
+#reviews .sec-h2 em{color:var(--gold);}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:4rem;}
+.rv-card{background:rgba(253,248,240,.04);border:1px solid rgba(200,146,42,.12);padding:2.5rem;text-align:left;transition:border-color .3s;}
+.rv-card:hover{border-color:rgba(200,146,42,.45);}
+.rv-stars{color:var(--gold);font-size:1rem;letter-spacing:.2rem;margin-bottom:1rem;}
+.rv-text{font-family:'Crimson Pro',serif;font-style:italic;font-size:1.05rem;line-height:1.8;color:var(--ivory);opacity:.7;margin-bottom:1.5rem;}
+.rv-author{font-family:'Tenor Sans',sans-serif;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);}
+.rv-loc{opacity:.35;font-size:.58rem;margin-top:.2rem;color:var(--ivory);}
+
+/* CONTACT */
+#contact{background:linear-gradient(135deg,var(--silk),var(--gold-pale));padding:7rem 5rem;}
+.contact-inner{max-width:680px;margin:0 auto;text-align:center;}
+.contact-inner .sec-tag{justify-content:center;}
+.contact-inner .sec-tag::before{display:none;}
+.cod-badge{display:inline-flex;align-items:center;gap:.75rem;background:var(--ivory);border:1.5px solid var(--gold);padding:.6rem 1.5rem;margin:1.8rem 0;font-family:'Tenor Sans',sans-serif;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);}
+.cod-dot{width:8px;height:8px;background:var(--gold);border-radius:50%;animation:pls 2s ease-in-out infinite;}
+@keyframes pls{0%,100%{opacity:1}50%{opacity:.25}}
+.contact-form{display:flex;flex-direction:column;gap:.9rem;margin-top:2rem;text-align:left;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;}
+.fi{background:var(--ivory);border:1px solid rgba(200,146,42,.3);color:var(--ink);padding:.85rem 1.2rem;font-family:'Crimson Pro',serif;font-size:.95rem;width:100%;outline:none;transition:border-color .2s;}
+.fi::placeholder{opacity:.4;font-style:italic;}
+.fi:focus{border-color:var(--gold);}
+.fi-sel{background:var(--ivory);appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23c8922a' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center;}
+.fi-ta{resize:vertical;min-height:100px;}
+.submit-big{background:var(--ink);color:var(--ivory);border:none;padding:1.2rem 2.5rem;font-family:'Tenor Sans',sans-serif;font-size:.75rem;letter-spacing:.25em;text-transform:uppercase;cursor:none;width:100%;margin-top:.5rem;transition:background .3s;position:relative;overflow:hidden;}
+.submit-big::before{content:'';position:absolute;inset:0;background:var(--gold);transform:translateX(-100%);transition:transform .4s ease;}
+.submit-big:hover::before{transform:translateX(0);}
+.submit-big span{position:relative;z-index:1;}
+.form-note{font-family:'Tenor Sans',sans-serif;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;text-align:center;opacity:.4;margin-top:.4rem;}
+
+/* MODAL */
+.modal-bg{position:fixed;inset:0;background:rgba(13,5,0,.78);z-index:800;opacity:0;pointer-events:none;transition:opacity .3s;display:flex;align-items:center;justify-content:center;padding:2rem;}
+.modal-bg.open{opacity:1;pointer-events:all;}
+.modal{background:var(--ivory);max-width:500px;width:100%;padding:3rem;position:relative;transform:translateY(30px) scale(.97);transition:transform .35s cubic-bezier(.25,.46,.45,.94);max-height:90vh;overflow-y:auto;}
+.modal-bg.open .modal{transform:translateY(0) scale(1);}
+.modal-close{position:absolute;top:1.2rem;right:1.5rem;background:none;border:none;font-size:1.8rem;cursor:none;color:var(--ink);opacity:.3;transition:opacity .2s;line-height:1;}
+.modal-close:hover{opacity:1;}
+.modal-eyebrow{font-family:'Tenor Sans',sans-serif;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem;}
+.modal-title{font-family:'Cinzel',serif;font-size:1.4rem;margin-bottom:1.5rem;color:var(--ink);}
+.modal-pcard{display:flex;gap:1rem;align-items:center;background:var(--silk);padding:1rem;margin-bottom:1.2rem;border-left:3px solid var(--gold);}
+.modal-pswatch{width:58px;height:72px;border-radius:2px;flex-shrink:0;}
+.modal-pname{font-size:1rem;margin-bottom:.2rem;}
+.modal-pprice{font-family:'Cinzel',serif;font-size:1rem;color:var(--gold);}
+.modal-cod-note{background:rgba(200,146,42,.07);border:1px solid rgba(200,146,42,.22);padding:.75rem 1rem;font-family:'Tenor Sans',sans-serif;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);text-align:center;margin-bottom:1.5rem;}
+.mform{display:flex;flex-direction:column;gap:.75rem;}
+.mrow{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;}
+.mfi{background:var(--ivory);border:1px solid rgba(200,146,42,.25);color:var(--ink);padding:.75rem 1rem;font-family:'Crimson Pro',serif;font-size:.95rem;width:100%;outline:none;transition:border-color .2s;}
+.mfi::placeholder{opacity:.4;font-style:italic;}
+.mfi:focus{border-color:var(--gold);}
+.mfi-ta{resize:vertical;min-height:80px;}
+.modal-submit{background:var(--gold);color:var(--ivory);border:none;padding:1.1rem;font-family:'Tenor Sans',sans-serif;font-size:.72rem;letter-spacing:.25em;text-transform:uppercase;cursor:none;width:100%;margin-top:.5rem;transition:background .3s;position:relative;overflow:hidden;}
+.modal-submit::before{content:'';position:absolute;inset:0;background:var(--ink);transform:scaleX(0);transform-origin:left;transition:transform .35s;}
+.modal-submit:hover::before{transform:scaleX(1);}
+.modal-submit span{position:relative;z-index:1;}
+.modal-fine{font-family:'Tenor Sans',sans-serif;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;text-align:center;opacity:.35;margin-top:.35rem;}
+
+.success-screen{display:none;flex-direction:column;align-items:center;text-align:center;padding:2rem 0;}
+.success-screen.show{display:flex;}
+.success-icon{width:72px;height:72px;border:2px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.8rem;margin-bottom:1.5rem;animation:scIn .5s ease;}
+@keyframes scIn{from{transform:scale(0)}to{transform:scale(1)}}
+.success-title{font-family:'Cinzel',serif;font-size:1.5rem;margin-bottom:.5rem;color:var(--ink);}
+.success-msg{font-size:1rem;opacity:.65;line-height:1.75;font-weight:300;}
+
+/* FOOTER */
+footer{background:var(--deep);padding:4rem 5rem 2rem;color:var(--ivory);}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;padding-bottom:3rem;border-bottom:1px solid rgba(253,248,240,.06);}
+.f-brand{font-family:'Cinzel',serif;font-size:1.4rem;letter-spacing:.25em;margin-bottom:.75rem;}
+.f-brand span{color:var(--gold);}
+.f-desc{font-size:.9rem;line-height:1.7;opacity:.38;max-width:220px;font-weight:300;}
+.f-col-t{font-family:'Tenor Sans',sans-serif;font-size:.58rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;}
+.f-links{list-style:none;display:flex;flex-direction:column;gap:.6rem;}
+.f-links a{font-size:.9rem;color:var(--ivory);opacity:.38;text-decoration:none;transition:opacity .2s;}
+.f-links a:hover{opacity:.9;}
+.footer-bot{display:flex;justify-content:space-between;align-items:center;padding-top:1.5rem;}
+.footer-bot p{font-family:'Tenor Sans',sans-serif;font-size:.58rem;letter-spacing:.1em;opacity:.22;color:var(--ivory);}
+
+/* TOAST */
+.toast{position:fixed;bottom:2.5rem;left:50%;transform:translateX(-50%) translateY(20px);background:var(--ink);color:var(--ivory);padding:.85rem 2rem;font-family:'Tenor Sans',sans-serif;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;z-index:1001;opacity:0;pointer-events:none;transition:all .35s;border-left:3px solid var(--gold);}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+@media(max-width:960px){
+  nav{padding:0 1.5rem;}
+  .nav-links{display:none;}
+  .hero{grid-template-columns:1fr;}
+  .hero-right{height:50vh;}
+  .pgrid{grid-template-columns:1fr 1fr;}
+  .about-grid,.banner{grid-template-columns:1fr;}
+  .proc-steps,.reviews-grid{grid-template-columns:1fr 1fr;}
+  .footer-top{grid-template-columns:1fr 1fr;}
+  .sec{padding:4rem 1.5rem;}
+  .hero-left{padding:3rem 1.5rem 2.5rem;}
+  .banner{padding:3rem 1.5rem;}
+  #contact,#reviews{padding:4rem 1.5rem;}
+  footer{padding:3rem 1.5rem 1.5rem;}
+}
+</style>
+</head>
+<body>
+
+<div class="cur" id="cur"></div>
+<div class="cur-ring" id="curRing"></div>
+
+<!-- ORDER MODAL -->
+<div class="modal-bg" id="modalBg" onclick="closeModalOutside(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <div id="modalContent">
+      <div class="modal-eyebrow">✦ Cash on Delivery Order</div>
+      <h2 class="modal-title" id="modalTitle">Place Your Order</h2>
+      <div class="modal-pcard" id="modalPcard"></div>
+      <div class="modal-cod-note">✦ No advance payment — Pay only when silk arrives at your door ✦</div>
+      <div class="mform">
+        <div class="mrow">
+          <input class="mfi" id="oName" type="text" placeholder="Full Name *">
+          <input class="mfi" id="oPhone" type="tel" placeholder="Phone Number *">
+        </div>
+        <input class="mfi" id="oEmail" type="email" placeholder="Email Address (optional)">
+        <textarea class="mfi mfi-ta" id="oAddr" placeholder="Full Delivery Address *"></textarea>
+        <div class="mrow">
+          <input class="mfi" id="oCity" type="text" placeholder="City *">
+          <input class="mfi" id="oPin" type="text" placeholder="Pincode *">
+        </div>
+        <select class="mfi" id="oQty">
+          <option value="1">1 Saree / 1 Metre</option>
+          <option value="2">2 Sarees / 2 Metres</option>
+          <option value="3">3 Sarees / 3 Metres</option>
+          <option value="5">5 Metres (Bulk)</option>
+          <option value="10">10+ Metres (Wholesale)</option>
+        </select>
+        <button class="modal-submit" onclick="submitOrder()">
+          <span>✦ Confirm COD Order ✦</span>
+        </button>
+        <p class="modal-fine">No advance · Our team calls within 24 hrs · Pay on delivery</p>
+      </div>
+    </div>
+    <div class="success-screen" id="successScreen">
+      <div class="success-icon">✓</div>
+      <h2 class="success-title">Order Confirmed!</h2>
+      <p class="success-msg" id="successMsg">Your silk order has been placed.<br>Our team will call you within 24 hours to confirm delivery details.<br><br><strong>Pay only when your silk arrives. 🌟</strong></p>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="logo-wrap">
+    <div class="logo-main">SULEKHA <span>SILKS</span></div>
+    <div class="logo-sub">Kerala's Finest Since 1978</div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#shop">Collection</a></li>
+    <li><a href="#about">Our Story</a></li>
+    <li><a href="#process">Craft</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#contact">Order</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="nav-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Enquire</button>
+    <button class="nav-btn filled" onclick="openModal(null)">Order Now</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-deco">
+    <div class="hdc hdc1"></div>
+    <div class="hdc hdc2"></div>
+    <div class="hdc hdc3"></div>
+  </div>
+  <div class="hero-left">
+    <div class="hero-eyebrow">
+      <div class="eyebrow-line"></div>
+      <span class="eyebrow-text">Kerala · Est. 1978 · Handwoven Silks</span>
+    </div>
+    <h1 class="hero-h1">Draped in<br><span class="iline">Timeless Grace</span></h1>
+    <p class="hero-para">Four decades of weaving the finest silks — Kasavu, Kanchipuram, Chanderi — each thread a testament to Kerala's unmatched artisan heritage. Delivered to your door. Pay on arrival.</p>
+    <div class="hero-actions">
+      <a href="#shop" class="btn-gold"><span>Explore Collection</span></a>
+      <button class="btn-outline" onclick="openModal(null)">Order on COD</button>
+    </div>
+    <div class="hero-trust">
+      <div><div class="trust-num">45+</div><div class="trust-label">Years of Craft</div></div>
+      <div><div class="trust-num">12K+</div><div class="trust-label">Happy Families</div></div>
+      <div><div class="trust-num">100%</div><div class="trust-label">Pure Silk</div></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="silk-showcase">
+      <div class="silk-drape sd1"></div>
+      <div class="silk-drape sd2"></div>
+      <div class="silk-drape sd3"></div>
+      <div class="silk-drape sd4"></div>
+    </div>
+    <div class="hero-badge"><div class="badge-inner">PURE<br>SILK<br>✦<br>COD</div></div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="mq-wrap"><div class="mq-track" id="mqTrack"></div></div>
+
+<!-- SHOP -->
+<section class="sec" id="shop">
+  <div class="shop-head reveal">
+    <div>
+      <div class="sec-tag">Our Collection</div>
+      <h2 class="sec-h2">Finest <em>Silks</em> of Kerala</h2>
+    </div>
+    <div class="filters">
+      <button class="f-btn on" onclick="doFilter('all',this)">All</button>
+      <button class="f-btn" onclick="doFilter('kasavu',this)">Kasavu</button>
+      <button class="f-btn" onclick="doFilter('kanchipuram',this)">Kanchipuram</button>
+      <button class="f-btn" onclick="doFilter('chanderi',this)">Chanderi</button>
+    </div>
+  </div>
+  <div class="pgrid" id="pgrid"></div>
+</section>
+
+<!-- BRIDAL BANNER -->
+<div class="banner reveal">
+  <div style="position:relative;z-index:2;">
+    <div class="banner-tag">✦ Limited Edition 2024</div>
+    <h2 class="banner-h2">Wedding<br><em>Collections</em></h2>
+    <p class="banner-p">Curated for the most precious occasions. Our bridal silk collection — gold-zari Kasavu, rich Kanchipuram borders, and hand-embroidered Chanderi — crafted to become heirlooms.</p>
+    <button class="btn-gold" onclick="openModal({name:'Bridal Silk Collection',price:'₹12,500',gradient:'linear-gradient(135deg,#8b3a52,#c8922a,#6b1a2a)',tag:'Bridal'})"><span>✦ Order Bridal Silk on COD</span></button>
+  </div>
+  <div class="banner-right">
+    <div class="banner-sw" data-label="Gold Zari Kasavu" style="background:linear-gradient(135deg,#c8922a,#f5e6c0,#c8922a,#8a5a10);"></div>
+    <div class="banner-sw" data-label="Bridal Kanchipuram" style="background:linear-gradient(135deg,#8b3a52,#c4607c,#6b1a2a,#8b3a52);"></div>
+    <div class="banner-sw" data-label="Ivory Chanderi" style="background:linear-gradient(135deg,#f9f0dc,#e8dfc8,#f5e6c0);border:1px solid rgba(200,146,42,.3);"></div>
+    <div class="banner-sw" data-label="Royal Emerald Silk" style="background:linear-gradient(135deg,#1e5245,#2d7a62,#0d3028);"></div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="sec" id="about">
+  <div class="about-grid">
+    <div class="about-visual reveal">
+      <div class="av1"></div>
+      <div class="av2"></div>
+      <div class="av3"><p class="av3-text">"Where every thread is woven with devotion."</p></div>
+      <div class="av-orn tl">✦</div>
+      <div class="av-orn br">✦</div>
+    </div>
+    <div class="about-body reveal">
+      <div class="sec-tag">Our Story</div>
+      <h2 class="sec-h2">Born in<br><em>Kerala's Looms</em></h2>
+      <p>Sulekha Silks was founded in 1978 by Sulekha Menon, a weaver's daughter from Thrissur who believed that the finest silks deserve to reach every home — not just palatial ones. What began as a small loom-house has grown into Kerala's most trusted silk brand.</p>
+      <p>Every saree, every metre of silk we sell carries the fingerprints of our master weavers — men and women who have dedicated their lives to this ancient art. We partner with artisan families across Thrissur, Kanchipuram, and Chanderi to bring you silks of unmatched quality.</p>
+      <div class="about-stats">
+        <div><div class="astat-n">45+</div><div class="astat-l">Years Heritage</div></div>
+        <div><div class="astat-n">320+</div><div class="astat-l">Silk Designs</div></div>
+        <div><div class="astat-n">28</div><div class="astat-l">Artisan Families</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="sec" id="process">
+  <div style="max-width:580px;margin:0 auto 1rem;text-align:center;" class="reveal">
+    <div class="sec-tag" style="justify-content:center;">Our Craft</div>
+    <h2 class="sec-h2">From Loom to <em>Your Home</em></h2>
+  </div>
+  <div class="proc-steps reveal">
+    <div class="proc-step"><div class="step-n">01</div><div class="step-t">Source the Silk</div><p class="step-d">We source only Grade-A pure silk threads from trusted sericulture farms, handpicked by our quality team each season.</p></div>
+    <div class="proc-step"><div class="step-n">02</div><div class="step-t">Dye & Prepare</div><p class="step-d">Threads are dyed in small batches using traditional and AZO-free colourants for vivid, lasting, wash-safe colour.</p></div>
+    <div class="proc-step"><div class="step-n">03</div><div class="step-t">Weave by Hand</div><p class="step-d">Master weavers work on traditional pit-looms, creating intricate zari patterns — some taking up to 2 weeks per saree.</p></div>
+    <div class="proc-step"><div class="step-n">04</div><div class="step-t">Deliver with Care</div><p class="step-d">Each piece is tagged with the weaver's name, wrapped in muslin, and shipped to your door. Cash on delivery — always.</p></div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews">
+  <div class="sec-tag reveal" style="justify-content:center;">Customer Stories</div>
+  <h2 class="sec-h2 reveal" style="text-align:center;">Worn with <em>Pride</em></h2>
+  <div class="reviews-grid reveal" id="reviewsGrid"></div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner reveal">
+    <div class="sec-tag">Place an Order</div>
+    <h2 class="sec-h2">Order Any <em>Silk</em><br>— Pay on Delivery</h2>
+    <p style="opacity:.65;font-size:1.05rem;line-height:1.7;font-weight:300;">Tell us what you need. We'll confirm within 24 hours and deliver to your door. No advance payment required.</p>
+    <div class="cod-badge"><div class="cod-dot"></div>Cash on Delivery · Free Shipping Above ₹2000 · Easy Returns</div>
+    <div class="contact-form">
+      <div class="form-row">
+        <input class="fi" type="text" id="cName" placeholder="Your Name *">
+        <input class="fi" type="tel" id="cPhone" placeholder="Phone Number *">
+      </div>
+      <input class="fi" type="email" id="cEmail" placeholder="Email Address (optional)">
+      <select class="fi fi-sel" id="cProduct">
+        <option value="">Select Silk Type *</option>
+        <option>Kasavu Traditional Saree</option>
+        <option>Kanchipuram Silk Saree</option>
+        <option>Chanderi Silk Saree</option>
+        <option>Pure Silk Fabric (per metre)</option>
+        <option>Bridal Collection</option>
+        <option>Custom Weave Order</option>
+      </select>
+      <textarea class="fi fi-ta" id="cMsg" placeholder="Your delivery address & any special requirements..."></textarea>
+      <button class="submit-big" onclick="submitEnquiry()"><span>✦ Place COD Order — No Advance Payment ✦</span></button>
+      <p class="form-note">✦ No advance payment · Our team calls within 24 hours · Pay only on delivery ✦</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="f-brand">SULEKHA <span>SILKS</span></div>
+      <p class="f-desc">Handwoven silks from the looms of Kerala. Four decades of trust, beauty, and craft.</p>
+    </div>
+    <div>
+      <p class="f-col-t">Collection</p>
+      <ul class="f-links"><li><a href="#">Kasavu Sarees</a></li><li><a href="#">Kanchipuram</a></li><li><a href="#">Chanderi Silk</a></li><li><a href="#">Bridal Range</a></li><li><a href="#">Silk Fabric</a></li></ul>
+    </div>
+    <div>
+      <p class="f-col-t">Studio</p>
+      <ul class="f-links"><li><a href="#">Our Story</a></li><li><a href="#">Artisans</a></li><li><a href="#">Sustainability</a></li><li><a href="#">Press</a></li></ul>
+    </div>
+    <div>
+      <p class="f-col-t">Help</p>
+      <ul class="f-links"><li><a href="#">COD Policy</a></li><li><a href="#">Returns</a></li><li><a href="#">Silk Care Guide</a></li><li><a href="#">WhatsApp Us</a></li></ul>
+    </div>
+  </div>
+  <div class="footer-bot">
+    <p>© 2024 Sulekha Silks. All rights reserved. Kerala, India.</p>
+    <p>Made with love · Woven by hand · Delivered with trust</p>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// CURSOR
+const cur=document.getElementById('cur'),ring=document.getElementById('curRing');
+document.addEventListener('mousemove',e=>{
+  cur.style.left=(e.clientX-5)+'px';cur.style.top=(e.clientY-5)+'px';
+  ring.style.left=(e.clientX-19)+'px';ring.style.top=(e.clientY-19)+'px';
+});
+document.querySelectorAll('a,button,input,select,textarea').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cur.style.transform='scale(2.5)';ring.style.transform='scale(1.4)';});
+  el.addEventListener('mouseleave',()=>{cur.style.transform='scale(1)';ring.style.transform='scale(1)';});
+});
+
+// MARQUEE
+const mqItems=['Handwoven Kasavu','Pure Kanchipuram Silk','Kerala Heritage Weaves','Cash on Delivery','Free Returns','Artisan Crafted','Gold Zari Work','45 Years of Trust','Bridal Collections','Thrissur Looms'];
+const mqTrack=document.getElementById('mqTrack');
+[...mqItems,...mqItems].forEach(t=>{
+  const s=document.createElement('span');s.className='mq-i';s.textContent=t;mqTrack.appendChild(s);
+  const d=document.createElement('span');d.className='mq-i mq-star';d.textContent='✦';mqTrack.appendChild(d);
+});
+
+// PRODUCTS
+const prods=[
+  {id:1,name:'Kasavu Traditional Saree',tag:'Kasavu',desc:'Gold-border Kerala classic',price:'₹4,800',was:'₹6,000',cat:'kasavu',badge:'Bestseller',bg:'linear-gradient(145deg,#f5e6c0 0%,#c8922a 40%,#f5e6c0 70%,#8a5a10 100%)'},
+  {id:2,name:'Royal Kanchipuram',tag:'Kanchipuram',desc:'Rich temple-border silk',price:'₹8,500',was:null,cat:'kanchipuram',badge:null,bg:'linear-gradient(145deg,#8b3a52 0%,#c4607c 40%,#6b1a2a 70%,#8b3a52 100%)'},
+  {id:3,name:'Ivory Chanderi Saree',tag:'Chanderi',desc:'Sheer elegance, zari motifs',price:'₹3,200',was:'₹4,000',cat:'chanderi',badge:'Sale',bg:'linear-gradient(145deg,#f9f0dc,#e8dfc8,#f5e6c0,#d8cbb0)'},
+  {id:4,name:'Emerald Silk Kasavu',tag:'Kasavu',desc:'Forest hue with gold zari border',price:'₹5,400',was:null,cat:'kasavu',badge:null,bg:'linear-gradient(145deg,#1e5245 0%,#2d7a62 40%,#0d3028 70%,#1e5245 100%)'},
+  {id:5,name:'Bridal Kanchipuram',tag:'Kanchipuram',desc:'Heavy zari bridal masterpiece',price:'₹14,000',was:'₹18,000',cat:'kanchipuram',badge:'Bridal',bg:'linear-gradient(145deg,#c8922a 0%,#8b3a52 35%,#c8922a 65%,#6b1a2a 100%)'},
+  {id:6,name:'Indigo Chanderi Silk',tag:'Chanderi',desc:'Delicate indigo summer silk',price:'₹2,800',was:null,cat:'chanderi',badge:null,bg:'linear-gradient(145deg,#1a3a6e 0%,#2d5a9e 40%,#1a2a5e 70%,#2d4a8e 100%)'},
+];
+
+function renderProds(filter='all'){
+  const g=document.getElementById('pgrid');
+  const list=filter==='all'?prods:prods.filter(p=>p.cat===filter);
+  g.innerHTML=list.map(p=>`
+    <div class="card reveal">
+      <div class="card-img">
+        <div class="card-fabric" style="background:${p.bg};"></div>
+        ${p.badge?`<div class="card-badge">${p.badge}</div>`:''}
+        <div class="card-over">
+          <button class="order-btn" onclick="openModal({name:'${p.name}',price:'${p.price}',gradient:'${p.bg}',tag:'${p.tag}'})">
+            <div class="order-btn-inner">
+              <span>Order Now</span>
+              <span class="cod-tag">— COD</span>
+            </div>
+          </button>
+          <button class="quick-view" onclick="showToast('${p.name} · ${p.price} · Pure ${p.tag} Silk — Hover to order!')">Quick View</button>
+        </div>
+      </div>
+      <div class="card-tag">${p.tag}</div>
+      <div class="card-name">${p.name}</div>
+      <div class="card-desc">${p.desc}</div>
+      <div class="card-price">
+        <span class="price-now">${p.price}</span>
+        ${p.was?`<span class="price-was">${p.was}</span>`:''}
+      </div>
+    </div>
+  `).join('');
+  observeReveal();
+}
+
+function doFilter(cat,btn){
+  document.querySelectorAll('.f-btn').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  renderProds(cat);
+}
+
+// REVIEWS
+const revs=[
+  {stars:'★★★★★',text:'The Kasavu saree I ordered for my daughter\'s wedding was absolutely breathtaking. The quality is unmatched — exactly as described. COD made it so easy to trust.',author:'Meena Krishnan',loc:'Thrissur, Kerala'},
+  {stars:'★★★★★',text:'I\'ve been buying from Sulekha Silks for 15 years. The Kanchipuram collection is the finest I\'ve found anywhere. Every saree is a work of art.',author:'Radha Subramaniam',loc:'Chennai, Tamil Nadu'},
+  {stars:'★★★★★',text:'Ordered a Chanderi silk for Onam. Delivered in 3 days, paid cash at the door. The fabric feels like a dream. Will order again!',author:'Priya Nair',loc:'Kochi, Kerala'},
+];
+document.getElementById('reviewsGrid').innerHTML=revs.map(r=>`
+  <div class="rv-card reveal">
+    <div class="rv-stars">${r.stars}</div>
+    <p class="rv-text">"${r.text}"</p>
+    <div class="rv-author">${r.author}</div>
+    <div class="rv-loc">${r.loc}</div>
+  </div>
+`).join('');
+
+// MODAL
+let curProd=null;
+function openModal(prod){
+  curProd=prod;
+  document.getElementById('successScreen').classList.remove('show');
+  document.getElementById('modalContent').style.display='block';
+  document.getElementById('modalTitle').textContent=prod?'Order '+prod.name:'Place a COD Order';
+  document.getElementById('modalPcard').innerHTML=prod?`
+    <div class="modal-pswatch" style="background:${prod.gradient};"></div>
+    <div>
+      <div class="modal-pname">${prod.name}</div>
+      <div style="font-family:'Tenor Sans',sans-serif;font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem;">${prod.tag}</div>
+      <div class="modal-pprice">${prod.price}</div>
+    </div>
+  `:`<div style="padding:.5rem;font-style:italic;opacity:.6;font-size:.95rem;">Please describe your silk requirements below and our team will call you to confirm.</div>`;
+  ['oName','oPhone','oEmail','oAddr','oCity','oPin'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('oQty').value='1';
+  document.getElementById('modalBg').classList.add('open');
+}
+function closeModal(){document.getElementById('modalBg').classList.remove('open');}
+function closeModalOutside(e){if(e.target===document.getElementById('modalBg'))closeModal();}
+
+function submitOrder(){
+  const n=document.getElementById('oName').value.trim();
+  const ph=document.getElementById('oPhone').value.trim();
+  const addr=document.getElementById('oAddr').value.trim();
+  const city=document.getElementById('oCity').value.trim();
+  const pin=document.getElementById('oPin').value.trim();
+  if(!n||!ph||!addr||!city||!pin){showToast('Please fill all required fields ✦');return;}
+  document.getElementById('modalContent').style.display='none';
+  document.getElementById('successMsg').innerHTML=`Your <strong>${curProd?curProd.name:'silk'}</strong> order has been confirmed for <strong>${city}</strong>.<br>Our team will call <strong>${ph}</strong> within 24 hours.<br><br><strong>Pay only when your silk arrives at your door. 🌟</strong>`;
+  document.getElementById('successScreen').classList.add('show');
+  showToast('✦ Order confirmed! We\'ll call you within 24 hours.');
+}
+
+// CONTACT FORM
+function submitEnquiry(){
+  const n=document.getElementById('cName').value.trim();
+  const ph=document.getElementById('cPhone').value.trim();
+  const prod=document.getElementById('cProduct').value;
+  if(!n||!ph||!prod){showToast('Please fill your name, phone & silk type ✦');return;}
+  showToast('✦ Order received! Our team will call you within 24 hours.');
+  ['cName','cPhone','cEmail','cMsg'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('cProduct').value='';
+}
+
+// TOAST
+function showToast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),3500);
+}
+
+// SCROLL REVEAL
+function observeReveal(){
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
+  },{threshold:.1});
+  document.querySelectorAll('.reveal:not(.visible)').forEach(el=>obs.observe(el));
+}
+
+renderProds();
+observeReveal();
+</script>
+</body>
+</html>
