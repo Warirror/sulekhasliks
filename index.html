@@ -1,224 +1,370 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sulekha Silks — Finest Kerala Silk</title>
-<link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@400;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
-<style>
-:root {
-  --ink:#1a0a00;--gold:#c8922a;--gold-light:#e8b84b;--gold-pale:#f5e6c0;
-  --ivory:#fdf8f0;--silk:#f9f0dc;--rose:#8b3a52;--rose-light:#c4607c;
-  --emerald:#1e5245;--burgundy:#6b1a2a;--shadow:rgba(26,10,0,0.15);--deep:#0d0500;
-}
-*{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{background:var(--ivory);color:var(--ink);font-family:'Crimson Pro',serif;overflow-x:hidden;}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Sulekha Silks | The Grand Heritage</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Tenor+Sans&family=Crimson+Pro:ital,wght@0,200;0,400;1,300&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #c8922a;
+            --gold-dark: #8a5a10;
+            --ink: #1a0a00;
+            --ivory: #fdf8f0;
+            --silk: #f9f0dc;
+            --white: #ffffff;
+        }
 
-/* Custom Cursor */
-.cur,.cur-ring{position:fixed;pointer-events:none;z-index:9999;border-radius:50%;transition:transform .15s;}
-.cur{width:10px;height:10px;background:var(--gold);mix-blend-mode:multiply;}
-.cur-ring{width:38px;height:38px;border:1.5px solid var(--gold);z-index:9998;transition:all .2s ease;mix-blend-mode:multiply;}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+        }
 
-body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");pointer-events:none;z-index:998;}
+        body {
+            background-color: var(--ivory);
+            color: var(--ink);
+            font-family: 'Crimson Pro', serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-nav{position:fixed;top:0;width:100%;z-index:500;padding:0 5rem;background:rgba(253,248,240,0.93);backdrop-filter:blur(20px);border-bottom:1px solid rgba(200,146,42,0.2);display:flex;justify-content:space-between;align-items:center;height:85px;animation:slideDown .8s ease both;}
-@keyframes slideDown{from{opacity:0;transform:translateY(-100%)}to{opacity:1;transform:translateY(0)}}
+        /* Loading Animation */
+        .loader {
+            position: fixed;
+            inset: 0;
+            background: var(--ink);
+            z-index: 10000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.8s ease;
+        }
+        .loader-logo {
+            font-family: 'Cinzel', serif;
+            color: var(--gold);
+            font-size: 2rem;
+            letter-spacing: 5px;
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; transform: scale(0.98); }
+            50% { opacity: 1; transform: scale(1.02); }
+        }
 
-/* Logo Styling */
-.logo-wrap{display:flex;flex-direction:column;align-items:center;line-height:1;text-decoration:none;}
-.logo-icon{font-size: 1.5rem; color: var(--gold); margin-bottom: 2px;}
-.logo-main{font-family:'Cinzel',serif;font-size:1.6rem;font-weight:700;letter-spacing:.25em;color:var(--ink);}
-.logo-main span{color:var(--gold);}
-.logo-sub{font-family:'Crimson Pro',serif;font-size:.6rem;letter-spacing:.45em;text-transform:uppercase;color:var(--gold);margin-top:.2rem;}
+        /* Navbar */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 90px;
+            padding: 0 8%;
+            background: rgba(253, 248, 240, 0.95);
+            backdrop-filter: blur(20px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(200, 146, 42, 0.1);
+        }
 
-.nav-links{display:flex;gap:2.5rem;list-style:none;}
-.nav-links a{font-family:'Tenor Sans',sans-serif;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);text-decoration:none;opacity:.6;transition:opacity .2s,color .2s;}
-.nav-links a:hover{opacity:1;color:var(--gold);}
+        .logo-box {
+            text-align: center;
+            text-decoration: none;
+            color: var(--ink);
+        }
+        .logo-box h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.6rem;
+            letter-spacing: 4px;
+            font-weight: 900;
+        }
+        .logo-box h1 span { color: var(--gold); }
+        .logo-box p {
+            font-size: 0.6rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: var(--gold-dark);
+        }
 
-.nav-right{display:flex;align-items:center;gap:1rem;}
-.nav-btn{font-family:'Tenor Sans',sans-serif;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;background:none;border:1.5px solid var(--gold);color:var(--gold);padding:.5rem 1.2rem;cursor:none;transition:all .25s;}
-.nav-btn:hover,.nav-btn.filled{background:var(--gold);color:var(--ivory);}
+        /* Custom Mobile Menu Button */
+        .menu-btn {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+        .menu-btn div {
+            width: 25px;
+            height: 2px;
+            background: var(--ink);
+        }
 
-/* HERO */
-.hero{min-height:100vh;background:linear-gradient(135deg,var(--silk) 0%,var(--ivory) 50%,var(--gold-pale) 100%);display:grid;grid-template-columns:1fr 1.1fr;position:relative;overflow:hidden;padding-top:85px;}
-.hero-left{display:flex;flex-direction:column;justify-content:center;padding:5rem 4rem 5rem 6rem;animation:heroL 1.2s .3s ease both;position:relative;z-index:2;}
-@keyframes heroL{from{opacity:0;transform:translateX(-40px)}to{opacity:1;transform:translateX(0)}}
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 10%;
+            gap: 50px;
+            background: radial-gradient(circle at top right, var(--silk) 0%, var(--ivory) 70%);
+        }
 
-.hero-eyebrow{display:flex;align-items:center;gap:.75rem;margin-bottom:2rem;}
-.eyebrow-line{width:40px;height:1px;background:var(--gold);}
-.eyebrow-text{font-family:'Tenor Sans',sans-serif;font-size:.65rem;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);}
+        .hero-content {
+            flex: 1.2;
+            animation: fadeInUp 1s ease-out;
+        }
+        .hero-content h2 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            line-height: 1;
+            margin-bottom: 25px;
+        }
+        .hero-content h2 em {
+            color: var(--gold);
+            font-style: italic;
+            font-weight: 400;
+        }
+        .hero-content p {
+            font-size: 1.2rem;
+            max-width: 500px;
+            opacity: 0.8;
+            margin-bottom: 40px;
+        }
 
-.hero-h1{font-family:'Cinzel',serif;font-size:clamp(3rem,6vw,5.5rem);font-weight:700;line-height:1;color:var(--ink);margin-bottom:1.5rem;}
-.hero-h1 .iline{font-family:'Libre Baskerville',serif;font-style:italic;font-weight:400;color:var(--gold);display:block;font-size:.8em;}
+        .hero-img-container {
+            flex: 1;
+            position: relative;
+            height: 75vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .main-img {
+            width: 100%;
+            height: 100%;
+            background: url('1000195151.jpg') center/cover;
+            border: 15px solid var(--white);
+            box-shadow: 30px 30px 80px rgba(0,0,0,0.1);
+            animation: imgFloat 6s ease-in-out infinite;
+        }
+        @keyframes imgFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(1deg); }
+        }
 
-.hero-para{font-size:1.15rem;line-height:1.8;color:var(--ink);opacity:.75;max-width:480px;margin-bottom:2.5rem;}
+        /* Collection Section */
+        .shop-sec {
+            padding: 120px 8%;
+        }
+        .sec-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+        .sec-header h3 {
+            font-family: 'Tenor Sans', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 15px;
+        }
+        .sec-header h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 3rem;
+        }
 
-.hero-actions{display:flex;gap:1rem;}
-.btn-gold{font-family:'Tenor Sans',sans-serif;font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;background:var(--gold);color:var(--ivory);border:none;padding:1.1rem 2.5rem;cursor:none;transition:all .3s;text-decoration:none;display:inline-block;position:relative;z-index:1;}
-.btn-gold:hover{background:var(--ink);}
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
 
-.hero-right{position:relative;display:flex;align-items:center;justify-content:center;}
-.hero-img-box{width:80%;height:80%;position:relative;z-index:2;}
-.hero-main-img{width:100%;height:100%;object-fit:cover;box-shadow:30px 30px 0 var(--gold-pale);border:1px solid rgba(200,146,42,0.2);}
+        .card {
+            background: var(--white);
+            padding: 20px;
+            transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        .card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 40px 70px rgba(0,0,0,0.08);
+        }
+        .card img {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            margin-bottom: 25px;
+            transition: transform 0.8s ease;
+        }
+        .card:hover img {
+            transform: scale(1.05);
+        }
+        .card h4 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+        }
+        .card p {
+            color: var(--gold-dark);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
 
-/* SHOP */
-.sec{padding:8rem 6rem;}
-.sec-tag{font-family:'Tenor Sans',sans-serif;font-size:.65rem;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:1rem;}
-.sec-tag::before{content:'';width:35px;height:1px;background:var(--gold);}
-.sec-h2{font-family:'Cinzel',serif;font-size:3rem;line-height:1.2;color:var(--ink);margin-bottom:3rem;}
-.sec-h2 em{font-family:'Libre Baskerville',serif;font-style:italic;color:var(--gold);font-weight:400;}
+        /* Buttons */
+        .cta-btn {
+            padding: 18px 40px;
+            background: var(--gold);
+            color: var(--white);
+            text-decoration: none;
+            font-family: 'Tenor Sans', sans-serif;
+            letter-spacing: 3px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            display: inline-block;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        .cta-btn:hover {
+            background: var(--ink);
+            letter-spacing: 5px;
+        }
 
-.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:3rem;}
-.card{transition:transform .4s ease;}
-.card-img-wrap{width:100%;aspect-ratio:3/4;overflow:hidden;margin-bottom:1.5rem;position:relative;}
-.card-img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease;}
-.card:hover .card-img{transform:scale(1.08);}
-.card-overlay{position:absolute;inset:0;background:rgba(26,10,0,0.3);opacity:0;transition:opacity .3s;display:flex;align-items:center;justify-content:center;}
-.card:hover .card-overlay{opacity:1;}
+        /* Footer */
+        footer {
+            background: var(--ink);
+            color: var(--white);
+            padding: 100px 8% 50px;
+            text-align: center;
+        }
+        .footer-logo {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            list-style: none;
+            margin-bottom: 60px;
+            opacity: 0.6;
+        }
+        .footer-links li a { color: white; text-decoration: none; font-size: 0.9rem; }
 
-.order-btn{background:var(--gold);color:white;border:none;padding:1rem 1.5rem;font-family:'Tenor Sans',serif;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;cursor:none;}
+        /* Animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-.card-title{font-family:'Cinzel',serif;font-size:1.3rem;margin-bottom:.5rem;}
-.card-price{color:var(--gold);font-family:'Cinzel',serif;font-size:1.1rem;}
+        /* MOBILE OPTIMIZATION */
+        @media (max-width: 1024px) {
+            .grid { grid-template-columns: repeat(2, 1fr); }
+            .hero { flex-direction: column; text-align: center; height: auto; padding-top: 150px; }
+            .hero-img-container { width: 100%; height: 450px; margin-top: 50px; }
+            .hero-content h2 { font-size: 3.5rem; }
+        }
 
-/* FOOTER */
-footer{background:var(--deep);color:var(--ivory);padding:5rem 6rem 3rem;}
-.f-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:4rem;margin-bottom:4rem;}
-.f-logo{font-family:'Cinzel',serif;font-size:1.8rem;letter-spacing:.3em;margin-bottom:1.5rem;}
-.f-logo span{color:var(--gold);}
-.f-text{opacity:.5;line-height:1.8;max-width:300px;}
-
-.reveal{opacity:0;transform:translateY(30px);transition:all .8s ease;}
-.reveal.visible{opacity:1;transform:translateY(0);}
-
-@media(max-width:1024px){
-  .hero{grid-template-columns:1fr;}
-  .hero-right{height:60vh;padding:2rem;}
-  .pgrid{grid-template-columns:1fr 1fr;}
-  .sec{padding:5rem 2rem;}
-}
-</style>
+        @media (max-width: 600px) {
+            nav { height: 70px; padding: 0 5%; }
+            .logo-box h1 { font-size: 1.2rem; }
+            .grid { grid-template-columns: 1fr; }
+            .hero-content h2 { font-size: 2.8rem; }
+            .hero-content p { font-size: 1rem; }
+            .hero-img-container { height: 350px; }
+            .card img { height: 400px; }
+            .footer-links { flex-direction: column; gap: 15px; }
+        }
+    </style>
 </head>
 <body>
 
-<div class="cur" id="cur"></div>
-<div class="cur-ring" id="curRing"></div>
-
-<nav>
-  <a href="#" class="logo-wrap">
-    <div class="logo-icon">✦</div>
-    <div class="logo-main">SULEKHA <span>SILKS</span></div>
-    <div class="logo-sub">Authentic Kerala Weaves</div>
-  </a>
-  <ul class="nav-links">
-    <li><a href="#shop">Collection</a></li>
-    <li><a href="#about">Legacy</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-  <div class="nav-right">
-    <button class="nav-btn filled" onclick="document.getElementById('shop').scrollIntoView()">Shop Now</button>
-  </div>
-</nav>
-
-<section class="hero">
-  <div class="hero-left">
-    <div class="hero-eyebrow">
-      <div class="eyebrow-line"></div>
-      <span class="eyebrow-text">Heritage Since 1978</span>
-    </div>
-    <h1 class="hero-h1">The Soul of<br><span class="iline">Kerala Weaving</span></h1>
-    <p class="hero-para">Experience the elegance of pure handloom Kasavu and rich Kanchipuram silks. Every thread tells a story of tradition, crafted by master artisans for your most precious moments.</p>
-    <div class="hero-actions">
-      <a href="#shop" class="btn-gold">Explore Collection</a>
-    </div>
-  </div>
-  <div class="hero-right">
-    <div class="hero-img-box">
-      <img src="https://images.unsplash.com/photo-1610030469618-d91901170984?q=80&w=2000&auto=format&fit=crop" alt="Kerala Silk Saree" class="hero-main-img">
-    </div>
-  </div>
-</section>
-
-<section class="sec" id="shop">
-  <div class="reveal">
-    <div class="sec-tag">Handpicked Selection</div>
-    <h2 class="sec-h2">Our <em>Signature</em> Collection</h2>
-  </div>
-  
-  <div class="pgrid">
-    <div class="card reveal">
-      <div class="card-img-wrap">
-        <img src="https://images.unsplash.com/photo-1630045437873-10d6e855798e?q=80&w=1000&auto=format&fit=crop" class="card-img" alt="Kasavu Saree">
-        <div class="card-overlay"><button class="order-btn">Order COD</button></div>
-      </div>
-      <div class="card-title">Traditional Kasavu</div>
-      <div class="card-price">₹4,500</div>
+    <div class="loader" id="loader">
+        <div class="loader-logo">SULEKHA</div>
     </div>
 
-    <div class="card reveal">
-      <div class="card-img-wrap">
-        <img src="https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?q=80&w=1000&auto=format&fit=crop" class="card-img" alt="Kanchipuram Silk">
-        <div class="card-overlay"><button class="order-btn">Order COD</button></div>
-      </div>
-      <div class="card-title">Royal Kanchipuram</div>
-      <div class="card-price">₹12,800</div>
-    </div>
+    <nav>
+        <div style="width: 50px;" class="mobile-hide"></div>
+        <a href="#" class="logo-box">
+            <h1>SULEKHA <span>SILKS</span></h1>
+            <p>A Tradition of Excellence</p>
+        </a>
+        <a href="#shop" class="cta-btn" style="padding: 10px 20px; font-size: 0.7rem;">Shop Now</a>
+    </nav>
 
-    <div class="card reveal">
-      <div class="card-img-wrap">
-        <img src="https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?q=80&w=1000&auto=format&fit=crop" class="card-img" alt="Designer Silk">
-        <div class="card-overlay"><button class="order-btn">Order COD</button></div>
-      </div>
-      <div class="card-title">Temple Border Silk</div>
-      <div class="card-price">₹7,200</div>
-    </div>
-  </div>
-</section>
+    <section class="hero">
+        <div class="hero-content">
+            <h3>✦ ESTABLISHED 1978</h3>
+            <h2>Woven into<br><em>Heritage</em></h2>
+            <p>ഓരോ നൂലിലും പാരമ്പര്യത്തിന്റെ സ്പർശം. കേരളത്തിന്റെ തനിമയാർന്ന കൈത്തറി ശോഭയിൽ നിങ്ങളും തിളങ്ങൂ.</p>
+            <a href="#shop" class="cta-btn">The Collection</a>
+        </div>
+        <div class="hero-img-container">
+            <div class="main-img"></div>
+        </div>
+    </section>
 
-<footer>
-  <div class="f-grid">
-    <div>
-      <div class="f-logo">SULEKHA <span>SILKS</span></div>
-      <p class="f-text">Four decades of bringing the finest handloom silks from the heart of Kerala to your doorstep.</p>
-    </div>
-    <div>
-      <h4 style="margin-bottom:1.5rem; color:var(--gold);">Explore</h4>
-      <p style="opacity:.6; margin-bottom:.5rem;">Kasavu Collection</p>
-      <p style="opacity:.6; margin-bottom:.5rem;">Bridal Wear</p>
-      <p style="opacity:.6; margin-bottom:.5rem;">Pure Fabrics</p>
-    </div>
-    <div>
-      <h4 style="margin-bottom:1.5rem; color:var(--gold);">Contact</h4>
-      <p style="opacity:.6; margin-bottom:.5rem;">Thrissur, Kerala</p>
-      <p style="opacity:.6; margin-bottom:.5rem;">+91 98765 43210</p>
-      <p style="opacity:.6; margin-bottom:.5rem;">hello@sulekhasilks.com</p>
-    </div>
-  </div>
-  <center style="opacity:.3; font-size:.7rem; letter-spacing:.2em; border-top:1px solid rgba(255,255,255,0.1); padding-top:2rem;">
-    © 2024 SULEKHA SILKS. ALL RIGHTS RESERVED.
-  </center>
-</footer>
+    <section class="shop-sec" id="shop">
+        <div class="sec-header">
+            <h3>✦ Our Finest Weaves</h3>
+            <h2>Signature Silks</h2>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <img src="1000195149.jpg" alt="Kasavu Saree">
+                <h4>Golden Kasavu</h4>
+                <p>₹4,999</p>
+            </div>
+            <div class="card">
+                <img src="1000195151.jpg" alt="Silk Special">
+                <h4>Bridal Weave</h4>
+                <p>₹12,499</p>
+            </div>
+            <div class="card">
+                <img src="1000195153.jpg" alt="Designer Saree">
+                <h4>Zari Designer</h4>
+                <p>₹8,750</p>
+            </div>
+        </div>
+    </section>
 
-<script>
-// Custom Cursor Logic
-const cur=document.getElementById('cur'),ring=document.getElementById('curRing');
-document.addEventListener('mousemove',e=>{
-  cur.style.left=(e.clientX-5)+'px';cur.style.top=(e.clientY-5)+'px';
-  ring.style.left=(e.clientX-19)+'px';ring.style.top=(e.clientY-19)+'px';
-});
+    <footer>
+        <div class="footer-logo">SULEKHA</div>
+        <ul class="footer-links">
+            <li><a href="#">INSTAGRAM</a></li>
+            <li><a href="#">FACEBOOK</a></li>
+            <li><a href="#">WHATSAPP</a></li>
+            <li><a href="#">CONTACT</a></li>
+        </ul>
+        <p style="font-family: 'Tenor Sans', sans-serif; font-size: 0.6rem; letter-spacing: 3px; opacity: 0.3;">
+            © 2026 SULEKHA SILKS KERALA. ALL RIGHTS RESERVED.
+        </p>
+    </footer>
 
-// Scroll Reveal
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
-}, { threshold: 0.1 });
+    <script>
+        // Loader timeout
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loader').style.opacity = '0';
+                setTimeout(() => {
+                    document.getElementById('loader').style.display = 'none';
+                }, 800);
+            }, 1000);
+        });
 
-document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
-</script>
-
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
